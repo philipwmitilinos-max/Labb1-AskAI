@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gemini App</title>
+</head>
+<body>
+<h1>Ställ din fråga</h1>
+<form action="/ask" method="get">
+    <input type="text" name="prompt" placeholder="Skriv dig fråga">
+    <button type="submit">Skicka</button>
+
+    <p th:text="'Fråga: ' + ${question}"></p>
+    <p th:text="'Svar: ' + ${answer}"></p>
+
+    <h2>Historik</h2>
+
+    <ul>
+        <li th:each="chat : ${history}">
+            <b th:text="${chat.question}"></b><br>
+            <span th:text="${chat.answer}"></span>
+        </li>
+    </ul>
+</form>
+</body>
+</html>
